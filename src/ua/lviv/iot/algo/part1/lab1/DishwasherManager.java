@@ -10,17 +10,17 @@ public class DishwasherManager {
     public List<Dishwasher> findElectricityConsumptionGreaterThan(float electricityConsumptionPerCycle){
         return dishwashers.stream().
                 filter(element -> element.getElectricityConsumptionPerCycle() > electricityConsumptionPerCycle).
-                collect(Collectors.toList());
+                toList();
     }
 
     public void addDishwasher(final Dishwasher dishwasher){
         this.dishwashers.add(dishwasher);
     }
 
-    public List<Dishwasher> FindAllWiderAndHigherThan(float width, float height){
+    public List<Dishwasher> FindAllWiderThan(float width){
         return dishwashers.stream().
-                filter(element -> element.getWidth() >= width && element.getHeight() >= height ).
-                collect(Collectors.toList());
+                filter(element -> element.getWidth() > width).
+                toList();
     }
 
     public static void main(String[] args){
@@ -31,22 +31,24 @@ public class DishwasherManager {
         dishwasherManager.addDishwasher(new CommercialDishwasher("Jackson DishStar HT-E", false, 61, 84, 0.74, 972));
         dishwasherManager.addDishwasher(new ClinicalDishwasher());
         dishwasherManager.addDishwasher(new ClinicalDishwasher("Maidaid MH525", true, 60, 82, 2, 85, 2.5, 3));
+        dishwasherManager.addDishwasher(new GlasswareWasher());
+        dishwasherManager.addDishwasher(new GlasswareWasher("Glory-2 / F2", true, 80, 150, 2.54, true, 117));
 
         for(Dishwasher dishwasher : dishwasherManager.dishwashers){
             System.out.println(dishwasher);
         }
 
         System.out.println("Dishwashers that consume more electricity than indicated:");
-        var dishwasher1 = dishwasherManager.findElectricityConsumptionGreaterThan(1);
-        for(Dishwasher dishwasher : dishwasher1) {
-            System.out.println(dishwasher1);
+        var dishwasherForElectricity = dishwasherManager.findElectricityConsumptionGreaterThan(2);
+        for(Dishwasher dishwasher : dishwasherForElectricity) {
+            System.out.println(dishwasherForElectricity);
         }
 
         System.out.println("Dishwasher than higher and wider than indicated: ");
 
-        var dishwasherHeightAndWidth = dishwasherManager.FindAllWiderAndHigherThan(61, 80);
-        for(Dishwasher dishwasher : dishwasherHeightAndWidth){
-            System.out.println(dishwasherHeightAndWidth);
+        var dishwasherForHeight = dishwasherManager.FindAllWiderThan(70);
+        for(Dishwasher dishwasher : dishwasherForHeight){
+            System.out.println(dishwasherForHeight);
         }
 
     }
