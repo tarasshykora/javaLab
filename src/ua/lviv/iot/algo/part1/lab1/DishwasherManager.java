@@ -8,14 +8,14 @@ import java.util.stream.Stream;
 public class DishwasherManager {
     public List<Dishwasher> dishwashers = new LinkedList<>();
 
-    public List<Dishwasher> findElectricityConsumptionGreaterThan(float electricityConsumptionPerCycle){
-        return dishwashers.stream().
-                filter(dishwasher -> dishwasher.getElectricityConsumptionPerCycle() > electricityConsumptionPerCycle).
-                collect(Collectors.toList());
-    }
-
     public void addDishwasher(final Dishwasher dishwasher){
         this.dishwashers.add(dishwasher);
+    }
+
+    public List<Dishwasher> findElectricityConsumptionGreaterThan(double electricityConsumptionPerCycle){
+        return dishwashers.stream()
+                .filter(dishwasher -> dishwasher.getElectricityConsumptionPerCycle() > electricityConsumptionPerCycle)
+                .collect(Collectors.toList());
     }
 
     public List<Dishwasher> GetAllHigherThan(double height) {
@@ -39,14 +39,18 @@ public class DishwasherManager {
             System.out.println(dishwasher);
         }
 
+        System.out.println("\n");
+
         System.out.println("Dishwashers that consume more electricity than indicated:");
         var dishwasherForElectricity = dishwasherManager.findElectricityConsumptionGreaterThan(2);
         for(Dishwasher dishwasher : dishwasherForElectricity) {
             System.out.println(dishwasherForElectricity);
         }
 
-        System.out.println("Dishwasher than higher than indicated: ");
-        var dishwasherHigherThan = dishwasherManager.GetAllHigherThan(100);
+        System.out.println("\n");
+
+        System.out.println("Dishwashers that have a greater height than indicated: ");
+        var dishwasherHigherThan = dishwasherManager.GetAllHigherThan(85);
         for(Dishwasher dishwasher : dishwasherHigherThan){
             System.out.println(dishwasher);
         }
