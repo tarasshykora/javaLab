@@ -13,13 +13,16 @@ import lombok.ToString;
 @ToString(callSuper = true)
 
 public class ClinicalDishwasher extends Dishwasher {
+    public static final int POWER_CONSUMPTION_PER_CYCLE = 2000;
+
     private double maxTemperatureOfSterilization;
     private double power;
     private double durationOfOneCycleOfSterilization;
 
     public float getPowerConsumptionPerCycle(){
-        return 2000;
+        return POWER_CONSUMPTION_PER_CYCLE;
     }
+
     public ClinicalDishwasher(String model, boolean isOn, double width, double height, double electricityConsumptionPerCycle,
                               double maxTemperatureOfSterilization, double power,
                               double durationOfOneCycleOfSterilization){

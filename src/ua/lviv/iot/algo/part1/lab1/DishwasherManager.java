@@ -6,7 +6,7 @@ import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 public class DishwasherManager {
-    public List<Dishwasher> dishwashers = new LinkedList<>();
+    private final List<Dishwasher> dishwashers = new LinkedList<>();
 
     public void addDishwasher(final Dishwasher dishwasher){
         this.dishwashers.add(dishwasher);
@@ -42,10 +42,9 @@ public class DishwasherManager {
         System.out.println("\n");
 
         System.out.println("Dishwashers that consume more electricity than indicated:");
-        var dishwasherForElectricity = dishwasherManager.findElectricityConsumptionGreaterThan(2);
-        for(Dishwasher dishwasher : dishwasherForElectricity) {
-            System.out.println(dishwasherForElectricity);
-        }
+
+        dishwasherManager.findElectricityConsumptionGreaterThan(2).forEach(
+                System.out::println);
 
         System.out.println("\n");
 
