@@ -11,6 +11,7 @@ import lombok.ToString;
 @AllArgsConstructor
 @ToString(callSuper = true)
 public class GlasswareWasher extends Dishwasher{
+
     private boolean hasITLAutomaticDoor;
     private double weight;
 

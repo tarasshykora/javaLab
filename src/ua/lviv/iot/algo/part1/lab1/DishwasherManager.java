@@ -3,24 +3,25 @@ package ua.lviv.iot.algo.part1.lab1;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 public class DishwasherManager {
     public List<Dishwasher> dishwashers = new LinkedList<>();
 
     public List<Dishwasher> findElectricityConsumptionGreaterThan(float electricityConsumptionPerCycle){
         return dishwashers.stream().
-                filter(element -> element.getElectricityConsumptionPerCycle() > electricityConsumptionPerCycle).
-                toList();
+                filter(dishwasher -> dishwasher.getElectricityConsumptionPerCycle() > electricityConsumptionPerCycle).
+                collect(Collectors.toList());
     }
 
     public void addDishwasher(final Dishwasher dishwasher){
         this.dishwashers.add(dishwasher);
     }
 
-    public List<Dishwasher> FindAllWiderThan(float width){
-        return dishwashers.stream().
-                filter(element -> element.getWidth() > width).
-                toList();
+    public List<Dishwasher> GetAllHigherThan(double height) {
+        return dishwashers.stream()
+            .filter(dishwasher -> dishwasher.getHeight() > height)
+            .collect(Collectors.toList());
     }
 
     public static void main(String[] args){
@@ -44,12 +45,13 @@ public class DishwasherManager {
             System.out.println(dishwasherForElectricity);
         }
 
-        System.out.println("Dishwasher than higher and wider than indicated: ");
-
-        var dishwasherForHeight = dishwasherManager.FindAllWiderThan(70);
-        for(Dishwasher dishwasher : dishwasherForHeight){
-            System.out.println(dishwasherForHeight);
+        System.out.println("Dishwasher than higher than indicated: ");
+        var dishwasherHigherThan = dishwasherManager.GetAllHigherThan(100);
+        for(Dishwasher dishwasher : dishwasherHigherThan){
+            System.out.println(dishwasher);
         }
 
     }
-}
+
+    }
+
