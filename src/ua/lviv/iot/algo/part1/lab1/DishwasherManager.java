@@ -18,7 +18,7 @@ public class DishwasherManager {
                 .collect(Collectors.toList());
     }
 
-    public List<Dishwasher> GetAllHigherThan(double height) {
+    public List<Dishwasher> getAllHigherThan(double height) {
         return dishwashers.stream()
             .filter(dishwasher -> dishwasher.getHeight() > height)
             .collect(Collectors.toList());
@@ -48,11 +48,7 @@ public class DishwasherManager {
 
         System.out.println("\n");
 
-        System.out.println("Dishwashers that have a greater height than indicated: ");
-        var dishwasherHigherThan = dishwasherManager.GetAllHigherThan(85);
-        for(Dishwasher dishwasher : dishwasherHigherThan){
-            System.out.println(dishwasher);
-        }
+        dishwasherManager.getAllHigherThan(85).forEach(System.out::println);
 
     }
 
