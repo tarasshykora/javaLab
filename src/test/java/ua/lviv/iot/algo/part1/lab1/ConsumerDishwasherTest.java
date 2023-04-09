@@ -1,12 +1,19 @@
 package ua.lviv.iot.algo.part1.lab1;
 
+import com.jparams.verifier.tostring.ToStringVerifier;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
 
 class ConsumerDishwasherTest {
+
     @Test
-    void TestDefaultConstuctor(){
+    void TestToString(){
+        ToStringVerifier.forClass(ConsumerDishwasher.class).verify();
+    }
+
+    @Test
+    void TestNoArgsConstuctor(){
         ConsumerDishwasher dishwasher = new ConsumerDishwasher();
         assertEquals(null, dishwasher.getModel());
         assertEquals(false, dishwasher.isOn());
@@ -18,7 +25,7 @@ class ConsumerDishwasherTest {
     }
 
     @Test
-    void testConstructorWithParameters() {
+    void testAllArgsConstructor() {
         ConsumerDishwasher dishwasher = new ConsumerDishwasher("LG LDTH7972S", true, 60.3, 85.3, 0.74, 14, 12);
         assertEquals("LG LDTH7972S", dishwasher.getModel());
         assertEquals(true, dishwasher.isOn());

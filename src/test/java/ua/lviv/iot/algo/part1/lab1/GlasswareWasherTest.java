@@ -1,10 +1,17 @@
 package ua.lviv.iot.algo.part1.lab1;
 
+import com.jparams.verifier.tostring.ToStringVerifier;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
 
 class GlasswareWasherTest {
+
+    @Test
+    void TestToString(){
+        ToStringVerifier.forClass(GlasswareWasher.class).verify();
+    }
+
     @Test
     void TestDefaultConstuctor(){
         GlasswareWasher dishwasher = new GlasswareWasher();
@@ -18,7 +25,7 @@ class GlasswareWasherTest {
     }
 
     @Test
-    void testConstructorWithParameters(){
+    void TestNoArgsConstuctor(){
         GlasswareWasher dishwasher = new GlasswareWasher("Glory-2 / F2", true, 80, 150, 2.54, true, 117);
         assertEquals("Glory-2 / F2", dishwasher.getModel());
         assertEquals(true, dishwasher.isOn());
