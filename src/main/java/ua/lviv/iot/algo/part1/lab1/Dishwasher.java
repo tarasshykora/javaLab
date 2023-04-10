@@ -20,7 +20,7 @@ public abstract class Dishwasher {
 
     public abstract float getPowerConsumptionPerCycle();
 
-    public Boolean turnOn(){
+    public Boolean turnOn() {
         return true;
     }
 

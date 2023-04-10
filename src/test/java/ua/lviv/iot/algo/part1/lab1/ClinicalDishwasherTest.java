@@ -2,7 +2,6 @@ package ua.lviv.iot.algo.part1.lab1;
 
 import com.jparams.verifier.tostring.ToStringVerifier;
 import org.junit.jupiter.api.Test;
-
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class ClinicalDishwasherTest {

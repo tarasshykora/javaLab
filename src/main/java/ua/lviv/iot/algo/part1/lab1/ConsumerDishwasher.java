@@ -11,16 +11,17 @@ import lombok.ToString;
 @NoArgsConstructor
 @AllArgsConstructor
 @ToString(callSuper = true)
-public class ConsumerDishwasher extends Dishwasher {
+public final class ConsumerDishwasher extends Dishwasher {
     public static final int POWER_CONSUMPTION_PER_CYCLE = 1000;
     private double maxCapacity;
     private double currentCapacity;
 
+    @Override
     public float getPowerConsumptionPerCycle() {
         return POWER_CONSUMPTION_PER_CYCLE;
     }
-    public ConsumerDishwasher(String model, boolean isOn, double width, double height,
-                              double electricityConsumptionPerCycle, double maxCapacity, double currentCapacity){
+    public ConsumerDishwasher(final String model, final boolean isOn, final double width, final double height,
+                              final double electricityConsumptionPerCycle, final double maxCapacity, final double currentCapacity) {
         super(model, isOn, width, height, electricityConsumptionPerCycle);
         this.maxCapacity = maxCapacity;
         this.currentCapacity = currentCapacity;

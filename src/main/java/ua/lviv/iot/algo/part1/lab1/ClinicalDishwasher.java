@@ -12,19 +12,20 @@ import lombok.ToString;
 @AllArgsConstructor
 @ToString(callSuper = true)
 
-public class ClinicalDishwasher extends Dishwasher {
+public final class ClinicalDishwasher extends Dishwasher {
     public static final int POWER_CONSUMPTION_PER_CYCLE = 2000;
     private double maxTemperatureOfSterilization;
     private double power;
     private double durationOfOneCycleOfSterilization;
 
-    public float getPowerConsumptionPerCycle(){
+    @Override
+    public float getPowerConsumptionPerCycle() {
         return POWER_CONSUMPTION_PER_CYCLE;
     }
 
-    public ClinicalDishwasher(String model, boolean isOn, double width, double height, double electricityConsumptionPerCycle,
-                              double maxTemperatureOfSterilization, double power,
-                              double durationOfOneCycleOfSterilization){
+    public ClinicalDishwasher(final String model, final boolean isOn, final double width, final double height, final double electricityConsumptionPerCycle,
+                              final double maxTemperatureOfSterilization, final double power,
+                              final double durationOfOneCycleOfSterilization) {
         super(model, isOn, width, height, electricityConsumptionPerCycle);
         this.durationOfOneCycleOfSterilization = durationOfOneCycleOfSterilization;
         this.power = power;
