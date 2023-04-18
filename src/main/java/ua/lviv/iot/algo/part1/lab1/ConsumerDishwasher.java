@@ -17,6 +17,16 @@ public final class ConsumerDishwasher extends Dishwasher {
     private double currentCapacity;
 
     @Override
+    public String getHeaders() {
+        return super.getHeaders() + ", maxCapacity, currentCapacity";
+    }
+
+    @Override
+    public String toCSV() {
+        return toCSV() + ", " + maxCapacity + "," + currentCapacity;
+    }
+
+    @Override
     public float getPowerConsumptionPerCycle() {
         return POWER_CONSUMPTION_PER_CYCLE;
     }

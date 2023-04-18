@@ -17,6 +17,16 @@ public final class GlasswareWasher extends Dishwasher {
     public static final int POWER_CONSUMPTION_PER_CYCLE = 2000;
 
     @Override
+    public String getHeaders() {
+        return super.getHeaders() + ", hasITLAutomaticDoor, weight";
+    }
+
+    @Override
+    public String toCSV() {
+        return super.toCSV() + "," + hasITLAutomaticDoor + ", " + weight;
+    }
+
+    @Override
     public float getPowerConsumptionPerCycle() {
         return POWER_CONSUMPTION_PER_CYCLE;
     }

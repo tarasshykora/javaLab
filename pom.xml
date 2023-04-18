@@ -23,10 +23,9 @@
         </dependency>
 
         <dependency>
-            <groupId>com.jparams</groupId>
-            <artifactId>to-string-verifier</artifactId>
-            <version>1.4.8</version>
-            <scope>test</scope>
+            <groupId>com.opencsv</groupId>
+            <artifactId>opencsv</artifactId>
+            <version>5.7.1</version>
         </dependency>
 
         <dependency>
@@ -155,5 +154,4 @@
             </plugin>
         </plugins>
     </reporting>
-
 </project>

@@ -15,6 +15,16 @@ public final class CommercialDishwasher extends Dishwasher {
     private static final int POWER_CONSUMPTION_PER_CYCLE = 1500;
 
     @Override
+    public String getHeaders() {
+        return super.getHeaders() + ", glassesPerHour";
+    }
+
+    @Override
+    public String toCSV() {
+        return super.toCSV() + ", " + glassesPerHour;
+    }
+
+    @Override
     public float getPowerConsumptionPerCycle() {
         return POWER_CONSUMPTION_PER_CYCLE;
     }

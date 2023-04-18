@@ -19,6 +19,16 @@ public final class ClinicalDishwasher extends Dishwasher {
     private double durationOfOneCycleOfSterilization;
 
     @Override
+    public String getHeaders() {
+        return super.getHeaders() + ", maxTemperatureOfSterilization, power, durationOfOneCycleOfSterilization";
+    }
+
+    @Override
+    public String toCSV() {
+        return super.toCSV() + ", " + maxTemperatureOfSterilization + ", " + power + ", " + durationOfOneCycleOfSterilization;
+    }
+
+    @Override
     public float getPowerConsumptionPerCycle() {
         return POWER_CONSUMPTION_PER_CYCLE;
     }
