@@ -4,18 +4,23 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.List;
 
-public class DishwasherWriter{
-    public void writeToFile(List<Dishwasher> dishwashers) throws IOException {
+public class DishwasherWriter {
+    public String writeToFile(List<Dishwasher> dishwashers) throws IOException {
         String fileName = "dishwasher.csv";
+        if (dishwashers == null || dishwashers.isEmpty()) {
+            return null;
+        }
         try (PrintWriter pw = new PrintWriter(fileName)) {
-            Dishwasher dishwasherType = dishwashers.get(0);
-            pw.println(dishwasherType.getHeaders());
-            for (Dishwasher dishwasher: dishwashers){
+            for (Dishwasher dishwasher : dishwashers) {
+                pw.println(dishwasher.getHeaders());
+                pw.println("\n");
                 pw.println(dishwasher.toCSV());
+                pw.println("\n");
             }
         } catch (Exception e) {
             e.printStackTrace();
         }
+        return fileName;
     }
 }
 
