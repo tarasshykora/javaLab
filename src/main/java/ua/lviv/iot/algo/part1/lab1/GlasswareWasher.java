@@ -23,7 +23,7 @@ public final class GlasswareWasher extends Dishwasher {
 
     @Override
     public String toCSV() {
-        return super.toCSV() + "," + hasITLAutomaticDoor + ", " + weight;
+        return super.toCSV() + ", " + hasITLAutomaticDoor + ", " + weight;
     }
 
     @Override

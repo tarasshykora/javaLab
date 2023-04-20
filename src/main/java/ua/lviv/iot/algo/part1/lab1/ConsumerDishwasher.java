@@ -23,7 +23,7 @@ public final class ConsumerDishwasher extends Dishwasher {
 
 
     public String toCSV() {
-        return super.toCSV() + ", " + maxCapacity + "," + currentCapacity;
+        return super.toCSV() + ", " + maxCapacity + ", " + currentCapacity;
     }
 
     public float getPowerConsumptionPerCycle() {

@@ -13,9 +13,7 @@ public class DishwasherWriter {
         try (PrintWriter pw = new PrintWriter(fileName)) {
             for (Dishwasher dishwasher : dishwashers) {
                 pw.println(dishwasher.getHeaders());
-                pw.println("\n");
                 pw.println(dishwasher.toCSV());
-                pw.println("\n");
             }
         } catch (Exception e) {
             e.printStackTrace();

@@ -19,7 +19,7 @@ public abstract class Dishwasher {
     private double electricityConsumptionPerCycle;
 
     public String getHeaders() {
-        return ", model, isOn, width, height, electricityConsumptionPerCycle";
+        return "model, isOn, width, height, electricityConsumptionPerCycle";
     }
 
     public String toCSV() {
