@@ -47,4 +47,13 @@ class DishwasherWriterTest {
         dishwasherWriter.writeToFile(dishwashers);
     }
 
+    @Test
+    public void testWriteListOfAnimals() throws IOException {
+        dishwasherWriter.writeToFile(dishwashers);
+        File file = new File(RESULT_FILE);
+        Path expected = new File(EXPECTED_FILE).toPath();
+        Path actual = new File(RESULT_FILE).toPath();
+        Assertions.assertEquals(-1L,Files.mismatch(expected, actual));
+    }
+
 }

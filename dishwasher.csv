@@ -1,24 +1,8 @@
-, model, isOn, width, height, electricityConsumptionPerCycle, maxCapacity, currentCapacity
-
-
-LG LDTH7972S, true, 60.3, 85.3, 0.74, 14.0,12.0
-
-
-, model, isOn, width, height, electricityConsumptionPerCycle, glassesPerHour
-
-
+model, isOn, width, height, electricityConsumptionPerCycle, maxCapacity, currentCapacity
+LG LDTH7972S, true, 60.3, 85.3, 0.74, 14.0, 12.0
+model, isOn, width, height, electricityConsumptionPerCycle, glassesPerHour
 Jackson DishStar HT-E, false, 61.0, 84.0, 0.74, 972
-
-
-, model, isOn, width, height, electricityConsumptionPerCycle, maxTemperatureOfSterilization, power, durationOfOneCycleOfSterilization
-
-
+model, isOn, width, height, electricityConsumptionPerCycle, maxTemperatureOfSterilization, power, durationOfOneCycleOfSterilization
 Maidaid MH525, true, 60.0, 82.0, 2.0, 85.0, 2.5, 3.0
-
-
-, model, isOn, width, height, electricityConsumptionPerCycle, hasITLAutomaticDoor, weight
-
-
-Glory-2 / F2, true, 80.0, 150.0, 2.54,true, 117.0
-
-
+model, isOn, width, height, electricityConsumptionPerCycle, hasITLAutomaticDoor, weight
+Glory-2 / F2, true, 80.0, 150.0, 2.54, true, 117.0
