@@ -1,7 +1,12 @@
-package ua.lviv.iot.algo.part1.lab1;
+package ua.lviv.iot.algo.part1.manager;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import ua.lviv.iot.algo.part1.lab1.ClinicalDishwasher;
+import ua.lviv.iot.algo.part1.lab1.CommercialDishwasher;
+import ua.lviv.iot.algo.part1.lab1.ConsumerDishwasher;
+import ua.lviv.iot.algo.part1.lab1.GlasswareWasher;
+
 import static org.junit.Assert.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 

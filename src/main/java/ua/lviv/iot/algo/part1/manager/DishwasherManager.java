@@ -1,4 +1,6 @@
-package ua.lviv.iot.algo.part1.lab1;
+package ua.lviv.iot.algo.part1.manager;
+
+import ua.lviv.iot.algo.part1.lab1.Dishwasher;
 
 import java.util.LinkedList;
 import java.util.List;

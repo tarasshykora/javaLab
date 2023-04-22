@@ -1,38 +1,28 @@
 package ua.lviv.iot.algo.part1.lab1;
 
-import com.jparams.verifier.tostring.ToStringVerifier;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class ConsumerDishwasherTest {
 
-    @Test
-    void TestToString(){
-        ToStringVerifier.forClass(ConsumerDishwasher.class).verify();
+    ConsumerDishwasher consumerDishwasher;
+
+    @BeforeEach
+    void setUp() {
+        consumerDishwasher = new ConsumerDishwasher("LG LDTH7972S", true, 60.3, 85.3, 0.74, 14, 12);
     }
 
     @Test
-    void TestNoArgsConstuctor(){
-        ConsumerDishwasher dishwasher = new ConsumerDishwasher();
-        assertEquals(null, dishwasher.getModel());
-        assertEquals(false, dishwasher.isOn());
-        assertEquals(0, dishwasher.getWidth());
-        assertEquals(0, dishwasher.getHeight());
-        assertEquals(0, dishwasher.getElectricityConsumptionPerCycle());
-        assertEquals(0, dishwasher.getMaxCapacity());
-        assertEquals(0, dishwasher.getCurrentCapacity());
+    void getHeaders() {
+        var expectedHeaders = "model, isOn, width, height, electricityConsumptionPerCycle, maxCapacity, currentCapacity";
+        assertEquals(expectedHeaders, consumerDishwasher.getHeaders());
     }
 
     @Test
-    void testAllArgsConstructor() {
-        ConsumerDishwasher dishwasher = new ConsumerDishwasher("LG LDTH7972S", true, 60.3, 85.3, 0.74, 14, 12);
-        assertEquals("LG LDTH7972S", dishwasher.getModel());
-        assertEquals(true, dishwasher.isOn());
-        assertEquals(60.3, dishwasher.getWidth());
-        assertEquals(85.3, dishwasher.getHeight());
-        assertEquals(0.74, dishwasher.getElectricityConsumptionPerCycle());
-        assertEquals(14, dishwasher.getMaxCapacity());
-        assertEquals(12, dishwasher.getCurrentCapacity());
+    void toCSV(){
+        var expectedValues = "LG LDTH7972S, true, 60.3, 85.3, 0.74, 14.0, 12.0";
+        assertEquals(expectedValues, consumerDishwasher.toCSV());
     }
 
     @Test

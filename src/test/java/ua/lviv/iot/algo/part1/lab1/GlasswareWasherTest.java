@@ -1,38 +1,28 @@
 package ua.lviv.iot.algo.part1.lab1;
 
-import com.jparams.verifier.tostring.ToStringVerifier;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class GlasswareWasherTest {
 
-    @Test
-    void TestToString(){
-        ToStringVerifier.forClass(GlasswareWasher.class).verify();
+    GlasswareWasher glasswareWasher;
+
+    @BeforeEach
+    void setUp() {
+        glasswareWasher = new GlasswareWasher("Glory-2 / F2", true, 80, 150, 2.54, true, 117);
     }
 
     @Test
-    void TestDefaultConstuctor(){
-        GlasswareWasher dishwasher = new GlasswareWasher();
-        assertEquals(null, dishwasher.getModel());
-        assertEquals(false, dishwasher.isOn());
-        assertEquals(0, dishwasher.getWidth());
-        assertEquals(0, dishwasher.getHeight());
-        assertEquals(0, dishwasher.getElectricityConsumptionPerCycle());
-        assertEquals(false, dishwasher.isHasITLAutomaticDoor());
-        assertEquals(0, dishwasher.getWeight());
+    void getHeaders() {
+        var expectedHeaders = "model, isOn, width, height, electricityConsumptionPerCycle, hasITLAutomaticDoor, weight";
+        assertEquals(expectedHeaders, glasswareWasher.getHeaders());
     }
 
     @Test
-    void TestNoArgsConstuctor(){
-        GlasswareWasher dishwasher = new GlasswareWasher("Glory-2 / F2", true, 80, 150, 2.54, true, 117);
-        assertEquals("Glory-2 / F2", dishwasher.getModel());
-        assertEquals(true, dishwasher.isOn());
-        assertEquals(80, dishwasher.getWidth());
-        assertEquals(150, dishwasher.getHeight());
-        assertEquals(2.54, dishwasher.getElectricityConsumptionPerCycle());
-        assertEquals(true, dishwasher.isHasITLAutomaticDoor());
-        assertEquals(117, dishwasher.getWeight());
+    void toCSV() {
+        var expectedValues = "Glory-2 / F2, true, 80.0, 150.0, 2.54, true, 117.0";
+        assertEquals(expectedValues, glasswareWasher.toCSV());
     }
 
     @Test

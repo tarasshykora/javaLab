@@ -1,37 +1,29 @@
 package ua.lviv.iot.algo.part1.lab1;
 
-import com.jparams.verifier.tostring.ToStringVerifier;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class CommercialDishwasherTest {
+    CommercialDishwasher commercialDishwasher;
 
-    @Test
-    void TestToString(){
-        ToStringVerifier.forClass(CommercialDishwasher.class).verify();
+    @BeforeEach
+    void setUp() {
+        commercialDishwasher = new CommercialDishwasher("Jackson DishStar HT-E", false, 61, 84, 0.74, 972);
     }
 
     @Test
-    void TestNoArgsConstuctor(){
-        CommercialDishwasher dishwasher = new CommercialDishwasher();
-        assertEquals(null, dishwasher.getModel());
-        assertEquals(false, dishwasher.isOn());
-        assertEquals(0, dishwasher.getWidth());
-        assertEquals(0, dishwasher.getHeight());
-        assertEquals(0, dishwasher.getElectricityConsumptionPerCycle());
-        assertEquals(0, dishwasher.getGlassesPerHour());
+    void getHeaders() {
+        var expectedHeaders = "model, isOn, width, height, electricityConsumptionPerCycle, glassesPerHour";
+        assertEquals(expectedHeaders, commercialDishwasher.getHeaders());
     }
 
     @Test
-    void testAllArgsConstructor(){
-        CommercialDishwasher dishwasher = new CommercialDishwasher("Jackson DishStar HT-E", false, 61, 84, 0.74, 972);
-        assertEquals("Jackson DishStar HT-E", dishwasher.getModel());
-        assertEquals(false, dishwasher.isOn());
-        assertEquals(61, dishwasher.getWidth());
-        assertEquals(84, dishwasher.getHeight());
-        assertEquals(0.74, dishwasher.getElectricityConsumptionPerCycle());
-        assertEquals(972, dishwasher.getGlassesPerHour());
+    void toCSV() {
+        var expectedValues = "Jackson DishStar HT-E, false, 61.0, 84.0, 0.74, 972";
+        assertEquals(expectedValues, commercialDishwasher.toCSV());
     }
+
     @Test
     void getPowerConsumptionPerCycle() {
         CommercialDishwasher commercialDishwasher = new CommercialDishwasher();

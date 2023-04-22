@@ -1,44 +1,32 @@
 package ua.lviv.iot.algo.part1.lab1;
 
-import com.jparams.verifier.tostring.ToStringVerifier;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class ClinicalDishwasherTest {
+    ClinicalDishwasher clinicalDishwasher;
 
-    @Test
-    void TestToString(){
-        ToStringVerifier.forClass(ClinicalDishwasher.class).verify();
+    @BeforeEach
+    void setUp() {
+        clinicalDishwasher = new ClinicalDishwasher("Maidaid MH525", true, 60, 82, 2, 85, 2.5, 3);
     }
 
     @Test
-    void TestNoArgsConstuctor(){
-        ClinicalDishwasher dishwasher = new ClinicalDishwasher();
-        assertEquals(null, dishwasher.getModel());
-        assertEquals(false, dishwasher.isOn());
-        assertEquals(0, dishwasher.getWidth());
-        assertEquals(0, dishwasher.getHeight());
-        assertEquals(0, dishwasher.getElectricityConsumptionPerCycle());
-        assertEquals(0, dishwasher.getMaxTemperatureOfSterilization());
-        assertEquals(0, dishwasher.getPower());
-        assertEquals(0, dishwasher.getDurationOfOneCycleOfSterilization());
+    void getHeaders() {
+        var expectedHeaders = "model, isOn, width, height, electricityConsumptionPerCycle, maxTemperatureOfSterilization, power, durationOfOneCycleOfSterilization";
+        assertEquals(expectedHeaders, clinicalDishwasher.getHeaders());
     }
 
     @Test
-    void testAllArgsConstructor(){
-        ClinicalDishwasher dishwasher = new ClinicalDishwasher("Maidaid MH525", true, 60, 82, 2, 85, 2.5, 3);
-        assertEquals("Maidaid MH525", dishwasher.getModel());
-        assertEquals(true, dishwasher.isOn());
-        assertEquals(60, dishwasher.getWidth());
-        assertEquals(82, dishwasher.getHeight());
-        assertEquals(2, dishwasher.getElectricityConsumptionPerCycle());
-        assertEquals(85, dishwasher.getMaxTemperatureOfSterilization());
-        assertEquals(2.5, dishwasher.getPower());
-        assertEquals(3, dishwasher.getDurationOfOneCycleOfSterilization());
+    void toCSV() {
+        var expectedValues = "Maidaid MH525, true, 60.0, 82.0, 2.0, 85.0, 2.5, 3.0";
+        assertEquals(expectedValues, clinicalDishwasher.toCSV());
     }
+
     @Test
     void getPowerConsumptionPerCycle() {
-        ClinicalDishwasher clinicalDishwasher = new ClinicalDishwasher();
         clinicalDishwasher.getPowerConsumptionPerCycle();
         assertEquals(2000, clinicalDishwasher.getPowerConsumptionPerCycle());
     }

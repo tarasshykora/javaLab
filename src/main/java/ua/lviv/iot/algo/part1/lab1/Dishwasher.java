@@ -18,6 +18,14 @@ public abstract class Dishwasher {
     private double height;
     private double electricityConsumptionPerCycle;
 
+    public String getHeaders() {
+        return "model, isOn, width, height, electricityConsumptionPerCycle";
+    }
+
+    public String toCSV() {
+        return model + ", " + isOn + ", " + width + ", " +
+                height + ", " + electricityConsumptionPerCycle;
+    }
     public abstract float getPowerConsumptionPerCycle();
 
     public Boolean turnOn() {
